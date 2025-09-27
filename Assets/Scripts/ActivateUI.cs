@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class ActivateUI : MonoBehaviour
 {
     public Rigidbody rb;   
-    public GameObject Prefabs;
+    public GameObject[] Prefabs;
     
     //use instantiation to create a new block or enemy
 
@@ -20,7 +21,6 @@ public class ActivateUI : MonoBehaviour
         public override void Execute()
         {
             //instantiate prefab 1
-            
         }
     }
 
@@ -55,18 +55,22 @@ public class ActivateUI : MonoBehaviour
     { 
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
+            Instantiate(Prefabs[0], new Vector3(-5, 3, 0), Quaternion.identity);
             buttonA.Execute();
         }
         if(Input.GetKeyDown(KeyCode.Alpha2))
         {
+            Instantiate(Prefabs[1], new Vector3(-2, 3, 0), Quaternion.identity);
             buttonB.Execute();
         }
         if(Input.GetKeyDown(KeyCode.Alpha3))
         {
+            Instantiate(Prefabs[2], new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
             buttonC.Execute();
         }
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {
+            Instantiate(Prefabs[3], new Vector3(3, 0.5f, 0), Quaternion.identity);
             buttonD.Execute();
         }
     }
